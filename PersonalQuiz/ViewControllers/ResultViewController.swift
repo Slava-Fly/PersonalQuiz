@@ -52,7 +52,7 @@ class ResultViewController: UIViewController {
             return pair1.value > pair2.value
         })
         
-        let mostPopularityAnswers = frequentOccurrenceAnswers.first!.key
+        let mostPopularityAnswers = answersSorted.first!.key
         
         resultAnswerLabel.text = "Вы - \(mostPopularityAnswers.rawValue)"
         resultDefinitationLabel.text = mostPopularityAnswers.definition
