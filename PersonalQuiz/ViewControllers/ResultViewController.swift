@@ -1,9 +1,3 @@
-//
-//  ResultViewController.swift
-//  PersonalQuiz
-//
-//  Created by Vasichko Anna on 10.11.2022.
-//
 
 import UIKit
 
@@ -20,10 +14,7 @@ class ResultViewController: UIViewController {
     @IBOutlet var resultAnswerLabel: UILabel!
     @IBOutlet var resultDefinitationLabel: UILabel!
     
-    
-    
-    var answers: [Answer]!
-
+    var answers: [Answer] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,13 +39,11 @@ class ResultViewController: UIViewController {
             frequentOccurrenceAnswers[answer] = (frequentOccurrenceAnswers[answer] ?? 0) + 1
         }
         
-        let answersSorted = frequentOccurrenceAnswers.sorted( by: { (pair1, pair2 ) -> Bool in
-            return pair1.value > pair2.value
-        })
+        let answersSorted = frequentOccurrenceAnswers.sorted( by: { $0.value > $1.value })
         
-        let mostPopularityAnswers = answersSorted.first!.key
-        
-        resultAnswerLabel.text = "Вы - \(mostPopularityAnswers.rawValue)"
-        resultDefinitationLabel.text = mostPopularityAnswers.definition
+        if let mostPopularityAnswers = answersSorted.first?.key {
+            resultAnswerLabel.text = "Вы - \(mostPopularityAnswers.rawValue)"
+            resultDefinitationLabel.text = mostPopularityAnswers.definition
+        }
     }
 }

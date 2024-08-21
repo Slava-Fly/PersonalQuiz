@@ -1,9 +1,3 @@
-//
-//  ViewController.swift
-//  PersonalQuiz
-//
-//  Created by Vasichko Anna on 07.11.2022.
-//
 
 import UIKit
 
@@ -144,5 +138,4 @@ extension QuestionsViewController {
         rangedLabels.first?.text = answers.first?.title
         rangedLabels.last?.text = answers.last?.title
     }
-    
 }
